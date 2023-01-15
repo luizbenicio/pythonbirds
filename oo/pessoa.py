@@ -54,7 +54,20 @@ if __name__ == '__main__':
     print(Pessoa.metodo_estatico(),eu.metodo_estatico())
     print(eu.nome_e_atributos_de_classe())
 
-
-
+    #Herança
+    class Homem(Pessoa): #a classe homem herda de pessoa (Pessoa é a classe pai de homem)
+        pass
+    #a herança inclui todos os métodos e atributos de dados da classe pai
+    #tomando a instância 'eu', poderíamos usar a classe Homem ao invés de pessoa
+    #ou seja, se alterássemos a linha de eu = Pessoa('Benicio') para eu = Homem('Benicio'), nada mudaria
+        
+    #checando se um objeto é de determinado tipo: isinstance()
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa,Pessoa))
+    print(isinstance(pessoa,Homem))
+    #Um homem é uma pessoa, mas uma pessoa não necessariamente é um homem
+    homem = Homem('Fulano')
+    print(isinstance(homem,Pessoa))
+    print(isinstance(homem,Homem))
 
 
