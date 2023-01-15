@@ -1,10 +1,18 @@
 class Pessoa:
+    olhos=2 #clal attribute or defaul attribute
     def __init__(self,*irmaos,nome=None,idade=32):
             self.nome=nome
             self.irmaos = list(irmaos)
             self.idade = idade
     def retorna_self_id(self):
         return f'Olá {id(self)}' #returns id of the self object
+    @staticmethod
+    def metodo_estatico(): #o método estático funciona como uma função atrelada à classe pessoa, independe do objeto, não precisa receber atributos
+        return 42
+    @classmethod
+    def nome_e_atributos_de_classe(cls): #método estático usado como queremos acessar dados da própria classe
+        return f'{cls} - olhos {cls.olhos}'
+
 
 if __name__ == '__main__':
     #First Object
@@ -32,9 +40,19 @@ if __name__ == '__main__':
     #Removing attributes
     del eu.irmaos #removes the attrubute of the 'eu' object only
 
-    
+    #Class attributes
+    print(Pessoa.olhos) #I can access/print a class attribute from the class
+    print(eu.olhos) #I can also access it from any instance of the class
+    print(id(Pessoa.olhos),id(eu.olhos)) #the ids are the same
+    print(eu.__dict__) # class attributes  do not show on __dict__ of the instances
+    eu.olhos = 1 #I can override locally, now it is a new id and it shows on eu.__dict__
+    print(eu.__dict__)
+    #Python first looks for instance attributes, then parent class attributes,
+    del eu.olhos #now eu.olhos returns the class attribute again 
 
-
+    #Métodos de Classe
+    print(Pessoa.metodo_estatico(),eu.metodo_estatico())
+    print(eu.nome_e_atributos_de_classe())
 
 
 
