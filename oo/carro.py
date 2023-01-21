@@ -147,7 +147,7 @@ class Carro:
 motor = Motor()
 direcao = Direcao()
 c = Carro(motor,direcao) 
-print(c.motor.velocidade,c.direcao.valor)
+#print(c.motor.velocidade,c.direcao.valor)
 
 
 if __name__=='__main__':
